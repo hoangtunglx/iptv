@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
+	<title>IPTV</title>
 	<link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
 	<style>
 		body {
@@ -21,6 +22,14 @@
 		.video-js {
 			width: 100%;
 			height: calc(100vh - 41px) !important;
+		}
+		
+		.vjs-error .vjs-big-play-button {
+			display: none;
+		}
+		
+		.vjs-paused .vjs-big-play-button, .vjs-paused.vjs-has-started .vjs-big-play-button {
+			display: block;
 		}
 		
 		#optionPanel select {
@@ -247,7 +256,7 @@
 			Z['hasOwnProperty'](S('0x186', 'Qz!y')) && (P = Z['channel']);
 			Z[S('0x174', 'hv5(')]('quality') && (L = Z[S('0x178', 'yDze')]);
 			let C = arr[S('0x170', 'jc5P')](c => c['name'] === P);
-			document[S('0x184', 'hv5(')] = S('0x18a', 'jc5P') + C[S('0x19c', 'SkLH')] + '\x20' + L + S('0x19f', 'U^TL');
+			document[S('0x184', 'hv5(')] = C[S('0x19c', 'SkLH')] + '\x20' + L;
 			var V = C[S('0x177', 'Qz!y')];
 			L == 'HD' && (V = V[S('0x18f', 'LxQ6')]('25', '50'));
 			$('input[name=qlt][value=' + L + ']')['prop'](S('0x1a8', 'K4Jb'), !![]), document[S('0x199', 'wVqK')](S('0x182', 'i8LN'))[S('0x196', 'Agwy')] = C[S('0x1a7', 'K*$8')];
