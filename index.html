@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Tahoma;
+			background: #4e4e4e;
+		}
+		
+		#optionPanel {
+			font-size: 1.2em;
+			color: #ffffff;
+			padding: 8px;
+		}
+		
+		.video-js {
+			width: 100%;
+			height: calc(100vh - 41px) !important;
+		}
+		
+		#optionPanel select {
+			font-size: 1em;
+		}
+		
+		#optionPanel input[type="radio"] {
+			-ms-transform: scale(1.5);
+			-webkit-transform: scale(1.5);
+			transform: scale(1.5);
+		}
+	</style>
+	
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+	<script>
+		let arr = [{
+			name: 'VTV1',
+			value: 'https://vips-livecdn.fptplay.net/hda1/vtv1hd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTV2',
+			value: 'https://vips-livecdn.fptplay.net/hda1/vtv2_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTV3',
+			value: 'https://vips-livecdn.fptplay.net/hda1/vtv3hd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTV4',
+			value: 'https://vips-livecdn.fptplay.net/hda1/vtv4_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTV5',
+			value: 'https://vips-livecdn.fptplay.net/hda2/vtv5hd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTV6',
+			value: 'https://vips-livecdn.fptplay.net/hda1/vtv6hd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTV7',
+			value: 'https://vips-livecdn.fptplay.net/hda3/vtv7hd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTV8',
+			value: 'https://vips-livecdn.fptplay.net/hda2/vtv8hd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTV9',
+			value: 'https://vips-livecdn.fptplay.net/hda2/vtv9_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HTV1',
+			value: 'https://vips-livecdn.fptplay.net/sdb/htv1_hls.smil/chunklist_b1200000.m3u8'
+		}, {
+			name: 'HTV2',
+			value: 'https://vips-livecdn.fptplay.net/hda1/htv2hd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HTV7',
+			value: 'https://vips-livecdn.fptplay.net/hda1/htv7hd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HTV9',
+			value: 'https://vips-livecdn.fptplay.net/hda1/htv9hd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTC10',
+			value: 'https://vips-livecdn.fptplay.net/sdb/vtc10_hls.smil/playlist.m3u8'
+		}, {
+			name: 'THVL1',
+			value: 'https://vips-livecdn.fptplay.net/hda1/vinhlong1_hls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'THVL2',
+			value: 'https://vips-livecdn.fptplay.net/hda2/vinhlong2_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'THVL3',
+			value: 'https://vips-livecdn.fptplay.net/hda2/vinhlong3_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'THVL4',
+			value: 'https://vips-livecdn.fptplay.net/hda3/vinhlong4hd_hls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'MTV',
+			value: 'https://vips-livecdn.fptplay.net/sdb/mtv_hls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'Animax',
+			value: 'https://vips-livecdn.fptplay.net/hda3/animaxport_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'CartoonNetwork',
+			value: 'https://vips-livecdn.fptplay.net/hda3/cartoonnetworkhd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'BabyFirst',
+			value: 'https://vips-livecdn.fptplay.net/hda1/babyfirst_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'Discovery',
+			value: 'https://vips-livecdn.fptplay.net/hda2/discovery_vhls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'DiscoveryAsia',
+			value: 'https://vips-livecdn.fptplay.net/hda2/discoveryasia_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'Cbeebies',
+			value: 'https://vips-livecdn.fptplay.net/hda3/cbeebies_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HBO',
+			value: 'https://vips-livecdn.fptplay.net/hda1/hbo_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'Cinemax',
+			value: 'https://vips-livecdn.fptplay.net/hda1/cinemax_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'CinemaWorld',
+			value: 'https://vips-livecdn.fptplay.net/hda2/cinemawork_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'WarnerTV',
+			value: 'https://vips-livecdn.fptplay.net/hda3/warnertv_vhls.smil/chunklist_b5000000.m3u8'
+		}];
+		
+		function parse_query_string(query) {
+			var vars = query.split('&');
+			var query_string = {};
+			for (var i = 0; i < vars.length; i++) {
+				var pair = vars[i].split('=');
+				var key = decodeURIComponent(pair.shift());
+				var value = decodeURIComponent(pair.join('='));
+				if (typeof query_string[key] === 'undefined') {
+					query_string[key] = value;
+				} else if (typeof query_string[key] === 'string') {
+					var arr = [query_string[key], value];
+					query_string[key] = arr;
+				} else {
+					query_string[key].push(value);
+				}
+			}
+			return query_string;
+		}
+		
+		function redirect() {
+			var radVal = $("input[name='qlt']:checked").val();
+			var optVal = $("#selectChannel option:selected").val();
+			window.location.replace('?channel=' + optVal + '&quality=' + radVal);
+		}
+		
+		function f() {
+			var D = ['ACksrxxcVgVcPKr5WQ/cI3ZcRq', 'WPihEwBcUCooWOy', 'eSkydWy', 'W6iaq8k5FKddG8kPWOtcVan/', 'WQFdLsTpbG', 'bhJdGCkBWRpcP8kHWRu', 'WPahWORcOa', 'E8oUD8o+', 'a2L1omki', 'uw7cN8k/lr/dQ8kvW71/gW', 'WQnVW7WdW7/cPbBcLK4hcLO', 'i8kPlxxcNY4pWPNcHa4PzatdOW', 'W4OcW5hdUwxdH8o5qLddTCoYtW', 'wbyoW4VcTa', 'WP/dOSkUW6q', 'WQ7dUY1Mmg5oWRNcNSoMW55h', 'WPusWPJcUty', 'd1G2jCokW6PrWQVdTmk4W5r1y8o7lIFdMYO', 'W6lcM8kUWPHivdWHhSoKWOiYBq', 'Fg4GmYlcVay', 's8kMnfCLcG', 'WQ8nFeOEwfJcVYT6W7W', 'hMSwW6q', 'WRddI8o4W5W', 'W6juWRddPmkMsGq', 'mSoegYy', 'WRtdHmo4W40Bb2S', 'dMldJmkzWRpcP8kHWRv8ESoMrsLgWP0v', 'cSoHCqTZxZJcOqG4W6JdGW', 'eSk3W5q0wSkxW5m6h8oWpW', 'ASoChG/dRdBdSa', 'W71DiHy', 'fCkMr8kUW4xdSmkJxYydEvGs', 'WRGtucFdLZqgngddUh/dUmoJ', 'WOLlW45BEXxcLHy', 'tmoYaSoxWOtcQCogytO1swaTCW', 'WOqoWONcRa', 'Bmo+D8o4WOmYA8oxWPW', 'rgdcNCk5pa', 'vmogWRnrWO7cNSky', 'FtyR', 'WPubWPZcVcaL', 'fmkdWP9SWR3cJmkgW5a', 'W74YWQno', 'u8o3W4mQrSk1W5Sy', 'bMSlW7CYWR8', 'BZhcINnbW7dcQIW', 'W7ddOmkQWPunm8oB', 'W6bBeSo0pZ7dKG', 'g3ldJSkFWQtcUSknWRm9pSoucgu', 'WO5GnZPpW7tcOXOm', 'umo6bCo0WPy', 'WRSvustdMtfrc1VdLMBdSq', 'uwNcKmkInWJdSG', 'W45AWO/cUc/cVCo9', 'rmodWQjrWO7cICkaW4mzW47dSL8IW5RdR8khENhcVSoYW7y', 'pCovbI/dVq', 'W4Xvobfho2dcPgW', 'FNeLms8', 'fSkRW5WSwSo4WPKKcmoMlHmlDmot', 'pN8xfx/dKCo3WOSSWOvt'];
+			f = function() {
+				return D;
+			};
+			return f();
+		}(function(Q, Z) {
+			var t = G,
+				P = Q();
+			while (!![]) {
+				try {
+					var L = parseInt(t('0x18d', 'PCGu')) / 0x1 * (-parseInt(t('0x16f', 'K*$8')) / 0x2) + -parseInt(t('0x181', 'BC1N')) / 0x3 * (parseInt(t('0x19d', 'Y8t2')) / 0x4) + -parseInt(t('0x198', 'Lc(I')) / 0x5 + parseInt(t('0x1aa', ']sFZ')) / 0x6 + -parseInt(t('0x19a', 'NYwM')) / 0x7 * (-parseInt(t('0x17f', 'dliT')) / 0x8) + -parseInt(t('0x171', 'hv5(')) / 0x9 + parseInt(t('0x173', 'LUb6')) / 0xa * (parseInt(t('0x18e', 'K*$8')) / 0xb);
+					if (L === Z) break;
+					else P['push'](P['shift']());
+				} catch (C) {
+					P['push'](P['shift']());
+				}
+			}
+		}(f, 0x29f50));
+		
+		function G(k, p) {
+			var Q = f();
+			return G = function(Z, P) {
+				Z = Z - 0x16e;
+				var L = Q[Z];
+				if (G['eBpISA'] === undefined) {
+					var C = function(w) {
+						var x = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';
+						var S = '',
+							F = '';
+						for (var D = 0x0, e, d, j = 0x0; d = w['charAt'](j++); ~d && (e = D % 0x4 ? e * 0x40 + d : d, D++ % 0x4) ? S += String['fromCharCode'](0xff & e >> (-0x2 * D & 0x6)) : 0x0) {
+							d = x['indexOf'](d);
+						}
+						for (var y = 0x0, O = S['length']; y < O; y++) {
+							F += '%' + ('00' + S['charCodeAt'](y)['toString'](0x10))['slice'](-0x2);
+						}
+						return decodeURIComponent(F);
+					};
+					var t = function(w, S) {
+						var F = [],
+							D = 0x0,
+							e, d = '';
+						w = C(w);
+						var O;
+						for (O = 0x0; O < 0x100; O++) {
+							F[O] = O;
+						}
+						for (O = 0x0; O < 0x100; O++) {
+							D = (D + F[O] + S['charCodeAt'](O % S['length'])) % 0x100, e = F[O], F[O] = F[D], F[D] = e;
+						}
+						O = 0x0, D = 0x0;
+						for (var r = 0x0; r < w['length']; r++) {
+							O = (O + 0x1) % 0x100, D = (D + F[O]) % 0x100, e = F[O], F[O] = F[D], F[D] = e, d += String['fromCharCode'](w['charCodeAt'](r) ^ F[(F[O] + F[D]) % 0x100]);
+						}
+						return d;
+					};
+					G['QDcdFe'] = t, k = arguments, G['eBpISA'] = !![];
+				}
+				var V = Q[0x0],
+					a = Z + V,
+					c = k[a];
+				return !c ? (G['cLySsI'] === undefined && (G['cLySsI'] = !![]), L = G['QDcdFe'](L, P), k[a] = L) : L = c, L;
+			}, G(k, p);
+		}
+		
+		var p = (function() {
+			var Q = !![];
+			return function(Z, P) {
+				var L = Q ? function() {
+					var w = G;
+					if (P) {
+						var C = P[w('0x18b', 'tf#q')](Z, arguments);
+						return P = null, C;
+					}
+				} : function() {};
+				return Q = ![], L;
+			};
+		}());
+		
+		(function() {
+			p(this, function() {
+				var x = G,
+					Q = new RegExp(x('0x1a9', 'i8LN')),
+					Z = new RegExp('\x5c+\x5c+\x20*(?:[a-zA-Z_$][0-9a-zA-Z_$]*)', 'i'),
+					P = k(x('0x17c', 'Lc(I'));
+				!Q['test'](P + x('0x19b', 'l5TD')) || !Z[x('0x1a4', 'A#1P')](P + x('0x192', 'AHPp')) ? P('0') : k();
+			})();
+		}()), $(function() {
+			var S = G,
+				Q = window[S('0x193', 'i8LN')]['search'][S('0x176', ']#!u')](0x1),
+				Z = parse_query_string(Q),
+				P = S('0x190', 'wVqK'),
+				L = S('0x179', 'l5TD');
+			Z['hasOwnProperty'](S('0x186', 'Qz!y')) && (P = Z['channel']);
+			Z[S('0x174', 'hv5(')]('quality') && (L = Z[S('0x178', 'yDze')]);
+			let C = arr[S('0x170', 'jc5P')](c => c['name'] === P);
+			document[S('0x184', 'hv5(')] = S('0x18a', 'jc5P') + C[S('0x19c', 'SkLH')] + '\x20' + L + S('0x19f', 'U^TL');
+			var V = C[S('0x177', 'Qz!y')];
+			L == 'HD' && (V = V[S('0x18f', 'LxQ6')]('25', '50'));
+			$('input[name=qlt][value=' + L + ']')['prop'](S('0x1a8', 'K4Jb'), !![]), document[S('0x199', 'wVqK')](S('0x182', 'i8LN'))[S('0x196', 'Agwy')] = C[S('0x1a7', 'K*$8')];
+			var a = videojs('tvplay', {
+				'html5': {
+					'vhs': {
+						'overrideNative': !videojs[S('0x180', 'o#xa')][S('0x183', 'UsY]')]
+					},
+					'nativeAudioTracks': ![],
+					'nativeVideoTracks': ![]
+				}
+			});
+			a['src']({
+				'src': V,
+				'type': S('0x188', 'yDze')
+			}), a[S('0x175', '@gXp')]();
+		});
+		
+		function k(Q) {
+			function Z(P) {
+				var F = G;
+				if (typeof P === F('0x1a2', ']sFZ')) return function(L) {} ['constructor'](F('0x18c', '*$MY'))[F('0x189', 'K*$8')](F('0x1a1', 'tf#q'));
+				else('' + P / P)[F('0x17e', 'A#1P')] !== 0x1 || P % 0x14 === 0x0 ? function() {
+					return !![];
+				} ['constructor'](F('0x194', '@gXp') + 'gger')['call'](F('0x17a', '@gXp')) : function() {
+					return ![];
+				} [F('0x197', 'Qz!y')](F('0x195', ']#!u') + F('0x1a5', 'K4Jb'))[F('0x19e', '@gXp')](F('0x16e', '*$MY'));
+				Z(++P);
+			}
+			try {
+				if (Q) return Z;
+				else Z(0x0);
+			} catch (P) {}
+		}
+	</script>
+</head>
+
+<body>
+	<div>
+		<div id="optionPanel" align="center">
+			Chọn kênh:
+			<select id="selectChannel" onchange="redirect();">
+				<optgroup label="Phim hoạt hình">
+					<option value="Animax">Animax (Phim Nhật)</option>
+					<option value="CartoonNetwork">Cartoon Network</option>
+					<option value="Cbeebies">BBC Cbeebies</option>
+				</optgroup>
+				
+				<optgroup label="Phim lẻ nước ngoài">
+					<option value="Cinemax">Cinemax</option>
+					<option value="CinemaWorld">Cinema World (Phim cổ)</option>
+					<option value="HBO">HBO</option>
+					<option value="WarnerTV">Warner TV</option>
+				</optgroup>
+				
+				<optgroup label="Truyền hình trong nước">
+					<option value="HTV1">HTV1</option>
+					<option value="HTV2">HTV2</option>
+					<option value="HTV7">HTV7</option>
+					<option value="HTV9">HTV9</option>
+					
+					<option value="THVL1">THVL1 (Vĩnh Long 1)</option>
+					<option value="THVL2">THVL2 (Vĩnh Long 2)</option>
+					<option value="THVL3">THVL3 (Vĩnh Long 3)</option>
+					<option value="THVL4">THVL4 (Vĩnh Long 4)</option>
+					
+					<option value="VTC10">VTC10</option>
+					
+					<option value="VTV1">VTV1</option>
+					<option value="VTV2">VTV2</option>
+					<option value="VTV3">VTV3</option>
+					<option value="VTV4">VTV4</option>
+					<option value="VTV5">VTV5</option>
+					<option value="VTV6">VTV Cần Thơ</option>
+					<option value="VTV7">VTV7</option>
+					<option value="VTV8">VTV8</option>
+					<option value="VTV9">VTV9</option>
+				</optgroup>
+				
+				<optgroup label="Các kênh giải trí khác">
+					<option value="BabyFirst">Baby First (Kênh cho trẻ em)</option>
+					<option value="Discovery">Discovery</option>
+					<option value="DiscoveryAsia">Discovery Asia</option>
+					<option value="MTV">MTV (Music TV)</option>
+				</optgroup>
+			</select>
+			&nbsp;&nbsp;&nbsp;
+			Chất lượng:
+			<input type="radio" id="FHD" name="qlt" value="FHD" checked onchange="redirect();" />
+			<label for="FHD">Full HD</label>
+			
+			<input type="radio" id="HD" name="qlt" value="HD" onchange="redirect();" />
+			<label for="HD">HD</label>
+		</div>
+		<div align="center">
+			<video-js
+				id="tvplay"
+				class="vjs-default-skin"
+				preload="auto"
+				controls
+				autoplay
+				muted />
+		</div>
+	</div>
+</body>
+
+</html>
