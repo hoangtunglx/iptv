@@ -14,7 +14,7 @@
 		}
 		
 		#optionPanel {
-			font-size: 1.2em;
+			font-size: 1.5em;
 			color: #ffffff;
 			padding: 8px;
 		}
@@ -47,6 +47,27 @@
 	<script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
 	<script>
 		let arr = [{
+			name: 'Animax',
+			value: 'https://vips-livecdn.fptplay.net/hda3/animaxport_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'CartoonNetwork',
+			value: 'https://vips-livecdn.fptplay.net/hda3/cartoonnetworkhd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'Cbeebies',
+			value: 'https://vips-livecdn.fptplay.net/hda3/cbeebies_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'Cinemax',
+			value: 'https://vips-livecdn.fptplay.net/hda1/cinemax_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'CinemaWorld',
+			value: 'https://vips-livecdn.fptplay.net/hda2/cinemawork_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HBO',
+			value: 'https://vips-livecdn.fptplay.net/hda1/hbo_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'WarnerTV',
+			value: 'https://vips-livecdn.fptplay.net/hda3/warnertv_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
 			name: 'VTV1',
 			value: 'https://vips-livecdn.fptplay.net/hda1/vtv1hd_vhls.smil/chunklist_b5000000.m3u8'
 		}, {
@@ -75,10 +96,16 @@
 			value: 'https://vips-livecdn.fptplay.net/hda2/vtv9_vhls.smil/chunklist_b5000000.m3u8'
 		}, {
 			name: 'HTV1',
-			value: 'https://vips-livecdn.fptplay.net/sdb/htv1_hls.smil/chunklist_b1200000.m3u8'
+			value: 'https://vips-livecdn.fptplay.net/sdb/htv1_hls.smil/chunklist_b2500000.m3u8'
 		}, {
 			name: 'HTV2',
 			value: 'https://vips-livecdn.fptplay.net/hda1/htv2hd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HTV3',
+			value: 'https://vips-livecdn.fptplay.net/sdb/htv3_2000.stream/chunklist.m3u8'
+		}, {
+			name: 'HTV4',
+			value: 'https://vips-livecdn.fptplay.net/sdb/htv4_hls.smil/chunklist_b2500000.m3u8'
 		}, {
 			name: 'HTV7',
 			value: 'https://vips-livecdn.fptplay.net/hda1/htv7hd_vhls.smil/chunklist_b5000000.m3u8'
@@ -86,8 +113,74 @@
 			name: 'HTV9',
 			value: 'https://vips-livecdn.fptplay.net/hda1/htv9hd_vhls.smil/chunklist_b5000000.m3u8'
 		}, {
+			name: 'HTVTheThao',
+			value: 'https://vips-livecdn.fptplay.net/hda3/htvcthethao_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HTVCThuanViet',
+			value: 'https://vips-livecdn.fptplay.net/hda3/htvcthuanviet_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HTVCThuanVietHD',
+			value: 'https://vips-livecdn.fptplay.net/hda1/htvcthuanviethd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HTVCGiaDinh',
+			value: 'https://vips-livecdn.fptplay.net/hda3/htvcgiadinh_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HTVCPhim',
+			value: 'https://drm-livecdn.hplus.com.vn/CDN-FPT02/HTVC-PHIM-HD-1080p/chunks.m3u8'
+		}, {
+			name: 'HTVCMusic',
+			value: 'https://vips-livecdn.fptplay.net/hda3/htvcmusic_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HTVCPhuNu',
+			value: 'https://vips-livecdn.fptplay.net/hda3/htvcphunu_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'HTVCPlus',
+			value: 'https://vips-livecdn.fptplay.net/hda3/htvcplus_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTC1',
+			value: 'https://vips-livecdn.fptplay.net/hda1/vtc1_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTC2',
+			value: 'https://vips-livecdn.fptplay.net/sdb/vtc2_hls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'VTC3',
+			value: 'https://vips-livecdn.fptplay.net/hda1/vtc3hd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTC4',
+			value: 'https://vips-livecdn.fptplay.net/hda2/vtc4_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTC5',
+			value: 'https://vips-livecdn.fptplay.net/sdb/vtc5_hls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'VTC6',
+			value: 'https://vips-livecdn.fptplay.net/sdb/vtc6_hls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'VTC7',
+			value: 'https://vips-livecdn.fptplay.net/sdb/todaytv_hls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'VTC8',
+			value: 'https://vips-livecdn.fptplay.net/sdb/vtc8_hls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'VTC9',
+			value: 'https://vips-livecdn.fptplay.net/sdb/vtc9_hls.smil/chunklist_b2500000.m3u8'
+		}, {
 			name: 'VTC10',
-			value: 'https://vips-livecdn.fptplay.net/sdb/vtc10_hls.smil/playlist.m3u8'
+			value: 'https://vips-livecdn.fptplay.net/sdb/vtc10_hls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'VTC11',
+			value: 'https://vips-livecdn.fptplay.net/sdb/vtc11_hls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'VTC12',
+			value: 'https://vips-livecdn.fptplay.net/sdb/vtc12_hls.smil/chunklist_b2500000.m3u8'
+		}, {
+			name: 'VTC13',
+			value: 'https://vips-livecdn.fptplay.net/hda1/vtc13_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTC14',
+			value: 'https://vips-livecdn.fptplay.net/hda1/vtc14_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'VTC16',
+			value: 'https://vips-livecdn.fptplay.net/sdb/vtc16_hls.smil/chunklist_b2500000.m3u8'
 		}, {
 			name: 'THVL1',
 			value: 'https://vips-livecdn.fptplay.net/hda1/vinhlong1_hls.smil/chunklist_b2500000.m3u8'
@@ -101,17 +194,32 @@
 			name: 'THVL4',
 			value: 'https://vips-livecdn.fptplay.net/hda3/vinhlong4hd_hls.smil/chunklist_b2500000.m3u8'
 		}, {
-			name: 'MTV',
-			value: 'https://vips-livecdn.fptplay.net/sdb/mtv_hls.smil/chunklist_b2500000.m3u8'
+			name: 'THAG',
+			value: 'https://vips-livecdn.fptplay.net/sda/angiang_1000.stream/chunklist.m3u8'
 		}, {
-			name: 'Animax',
-			value: 'https://vips-livecdn.fptplay.net/hda3/animaxport_vhls.smil/chunklist_b5000000.m3u8'
+			name: 'THNA',
+			value: 'https://vips-livecdn.fptplay.net/sda/nghean_hls.smil/chunklist_b2500000.m3u8'
 		}, {
-			name: 'CartoonNetwork',
-			value: 'https://vips-livecdn.fptplay.net/hda3/cartoonnetworkhd_vhls.smil/chunklist_b5000000.m3u8'
+			name: 'VOV1',
+			value: 'http://stream2.mobiradio.vn/vovradio/vov1.stream/chunklist.m3u8'
 		}, {
-			name: 'BabyFirst',
-			value: 'https://vips-livecdn.fptplay.net/hda1/babyfirst_vhls.smil/chunklist_b5000000.m3u8'
+			name: 'VOV2',
+			value: 'http://stream2.mobiradio.vn/vovradio/vov2.stream/chunklist.m3u8'
+		}, {
+			name: 'VOV3',
+			value: 'http://stream2.mobiradio.vn/vovradio/vov3.stream/chunklist.m3u8'
+		}, {
+			name: 'VOVGT',
+			value: 'http://stream2.mobiradio.vn/vovradio/vovgthcm.stream/chunklist.m3u8'
+		}, {
+			name: 'VOH1',
+			value: 'https://strm.voh.com.vn/radio/channel3/chunklist_w1035246301.m3u8'
+		}, {
+			name: 'VOH2',
+			value: 'https://strm.voh.com.vn/radio/channel1/chunklist_w242516345.m3u8'
+		}, {
+			name: 'VOH3',
+			value: 'https://strm.voh.com.vn/radio/channel2/chunklist_w318605622.m3u8'
 		}, {
 			name: 'Discovery',
 			value: 'https://vips-livecdn.fptplay.net/hda2/discovery_vhls.smil/chunklist_b2500000.m3u8'
@@ -119,20 +227,29 @@
 			name: 'DiscoveryAsia',
 			value: 'https://vips-livecdn.fptplay.net/hda2/discoveryasia_vhls.smil/chunklist_b5000000.m3u8'
 		}, {
-			name: 'Cbeebies',
-			value: 'https://vips-livecdn.fptplay.net/hda3/cbeebies_vhls.smil/chunklist_b5000000.m3u8'
+			name: 'AFN',
+			value: 'https://vips-livecdn.fptplay.net/hda1/afchd_vhls.smil/chunklist_b1200000.m3u8'
 		}, {
-			name: 'HBO',
-			value: 'https://vips-livecdn.fptplay.net/hda1/hbo_vhls.smil/chunklist_b5000000.m3u8'
+			name: 'AXN',
+			value: 'https://vips-livecdn.fptplay.net/hda3/axnhd_vhls.smil/chunklist_b5000000.m3u8'
 		}, {
-			name: 'Cinemax',
-			value: 'https://vips-livecdn.fptplay.net/hda1/cinemax_vhls.smil/chunklist_b5000000.m3u8'
+			name: 'KIX',
+			value: 'https://vips-livecdn.fptplay.net/hda1/kixhd_vhls.smil/chunklist_b5000000.m3u8'
 		}, {
-			name: 'CinemaWorld',
-			value: 'https://vips-livecdn.fptplay.net/hda2/cinemawork_vhls.smil/chunklist_b5000000.m3u8'
+			name: 'NATGEO',
+			value: 'https://vips-livecdn.fptplay.net/hda2/natgeohd_vhls.smil/chunklist_b5000000.m3u8'
 		}, {
-			name: 'WarnerTV',
-			value: 'https://vips-livecdn.fptplay.net/hda3/warnertv_vhls.smil/chunklist_b5000000.m3u8'
+			name: 'AnimalPlanet',
+			value: 'https://vips-livecdn.fptplay.net/hda2/animalplanet_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'DaVinci',
+			value: 'https://vips-livecdn.fptplay.net/hda2/davincihd_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'DreamWorks',
+			value: 'https://vips-livecdn.fptplay.net/hda3/dreamworks_vhls.smil/chunklist_b5000000.m3u8'
+		}, {
+			name: 'MTV',
+			value: 'https://vips-livecdn.fptplay.net/sdb/mtv_hls.smil/chunklist_b2500000.m3u8'
 		}];
 		
 		function parse_query_string(query) {
@@ -307,24 +424,22 @@
 				
 				<optgroup label="Phim lẻ nước ngoài">
 					<option value="Cinemax">Cinemax</option>
-					<option value="CinemaWorld">Cinema World (Phim cổ)</option>
+					<option value="CinemaWorld">Cinema World</option>
+					<option value="DreamWorks">DreamWorks</option>
 					<option value="HBO">HBO</option>
 					<option value="WarnerTV">Warner TV</option>
 				</optgroup>
 				
-				<optgroup label="Truyền hình trong nước">
-					<option value="HTV1">HTV1</option>
-					<option value="HTV2">HTV2</option>
-					<option value="HTV7">HTV7</option>
-					<option value="HTV9">HTV9</option>
-					
+				<optgroup label="Kênh địa phương">
+					<option value="THAG">TH An Giang</option>
+					<option value="THNA">TH Nghệ An</option>
 					<option value="THVL1">THVL1 (Vĩnh Long 1)</option>
 					<option value="THVL2">THVL2 (Vĩnh Long 2)</option>
 					<option value="THVL3">THVL3 (Vĩnh Long 3)</option>
 					<option value="THVL4">THVL4 (Vĩnh Long 4)</option>
-					
-					<option value="VTC10">VTC10</option>
-					
+				</optgroup>
+				
+				<optgroup label="Truyền hình Việt Nam">
 					<option value="VTV1">VTV1</option>
 					<option value="VTV2">VTV2</option>
 					<option value="VTV3">VTV3</option>
@@ -336,11 +451,64 @@
 					<option value="VTV9">VTV9</option>
 				</optgroup>
 				
+				<optgroup label="Truyền hình cáp Việt Nam">
+					<option value="VTC1">VTC1</option>
+					<option value="VTC2">VTC2</option>
+					<option value="VTC3">VTC3</option>
+					<option value="VTC4">VTC4</option>
+					<option value="VTC5">VTC5</option>
+					<option value="VTC6">VTC6</option>
+					<option value="VTC7">VTC7</option>
+					<option value="VTC8">VTC8</option>
+					<option value="VTC9">VTC9</option>
+					<option value="VTC10">VTC10</option>
+					<option value="VTC11">VTC11</option>
+					<option value="VTC12">VTC12</option>
+					<option value="VTC13">VTC13</option>
+					<option value="VTC14">VTC14</option>
+					<option value="VTC16">VTC16</option>
+				</optgroup>
+				
+				<optgroup label="Truyền hình TPHCM">
+					<option value="HTV1">HTV1</option>
+					<option value="HTV2">HTV2</option>
+					<option value="HTV3">HTV3</option>
+					<option value="HTV4">HTV4 (HTV Key)</option>
+					<option value="HTV7">HTV7</option>
+					<option value="HTV9">HTV9</option>
+					<option value="HTVTheThao">HTV Thể Thao</option>
+				</optgroup>
+				
+				<optgroup label="Truyền hình cáp TPHCM">
+					<option value="HTVCMusic">HTVC Ca Nhạc</option>
+					<option value="HTVCGiaDinh">HTVC Gia Đình</option>
+					<option value="HTVCPhim">HTVC Phim</option>
+					<option value="HTVCPhuNu">HTVC Phụ Nữ</option>
+					<option value="HTVCPlus">HTVC Plus</option>
+					<option value="HTVCThuanViet">HTVC Thuần Việt</option>
+					<option value="HTVCThuanVietHD">HTVC Thuần Việt HD</option>
+				</optgroup>
+				
+				<optgroup label="Radio">
+					<option value="VOV1">VOV1</option>
+					<option value="VOV2">VOV2</option>
+					<option value="VOV3">VOV3</option>
+					<option value="VOVGT">VOV Giao Thông</option>
+					<option value="VOH1">VOH1</option>
+					<option value="VOH2">VOH2</option>
+					<option value="VOH3">VOH3</option>
+				</optgroup>
+				
 				<optgroup label="Các kênh giải trí khác">
-					<option value="BabyFirst">Baby First (Kênh cho trẻ em)</option>
+					<option value="AFN">AFN</option>
+					<option value="AXN">AXN</option>
+					<option value="AnimalPlanet">AnimalPlanet</option>
+					<option value="DaVinci">Da Vinci</option>
 					<option value="Discovery">Discovery</option>
 					<option value="DiscoveryAsia">Discovery Asia</option>
+					<option value="KIX">KIX</option>
 					<option value="MTV">MTV (Music TV)</option>
+					<option value="NATGEO">National Geographic</option>
 				</optgroup>
 			</select>
 			&nbsp;&nbsp;&nbsp;
